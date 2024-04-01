@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Product</title>
+</head>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<style>
+    body{ background: lightblue;
+          color: red;
+<!--          border: 10px solid green;-->
+          text-align: right;
+          background:url("https://media.istockphoto.com/id/1306977521/photo/shopping-cart-with-different-food-products.jpg?s=612x612&w=0&k=20&c=rzV3HG_5Kk_cjndinm0_b4ETogKk1YvZ5b3MTTAVy_4=");
+          background-repeat: no-repeat;
+          background-size: cover;
+          margin: 25px 50px 75px 100px;
+
+         }
+
+    h1{ color: blue;
+        background: yellow;
+        text-align: center;
+       }
+
+</style>
+
+<!--{{message}}-->
+
+<body>
+<div class='container'></div>
+<!--    <div>"Jumbotron" align='center'</div>-->
+
+ <h1> Welcome To Mart </h1><hr>
+
+<!--{%if message%}-->
+<!--    {{message}}-->
+<!--{%endif%}-->
+
+<table class="table table-success table-striped">
+
+    <thead>
+    <th>Product ID</th>
+    <th>Product Name</th>
+    <th>Brand</th>
+    <th>Price</th>
+    <th>Quantity</th>
+<!--    <th>Total</th>-->
+    <th>Purchase Date</th>
+    <th></th>
+    </thead>
+
+    {%if all_product%}
+    {%for product in all_product%}
+
+    <tbody>
+    <td>{{product.id}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.brand}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.quantity}}</td>
+<!--    <td>{{product.total}}</td>-->
+    <td>{{product.purchase_date}}</td>
+    <td>
+    <a class="btn btn-danger" href="/product/delete/{{product.id}}" role="button"> Delete Product </a> &nbsp&nbsp&nbsp&nbsp
+    <a class="btn btn-success" href="/product/edit/{{product.id}}" role="button"> Edit Product </a>
+    </td>
+
+    {%endfor%}
+    {%endif%}
+
+
+    </tbody>
+</table>
+<a class="btn btn-success btn-lg" href="/product/save" role="button"> Add Product </a>
+
+</body>
+</html>

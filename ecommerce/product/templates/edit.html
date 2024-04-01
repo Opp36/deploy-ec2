@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Product</title>
+</head>
+
+<h1>Please Add Your Product....</h1><hr>
+<style>
+    h1{ color: green;
+        text-align: center;
+        border: 10px solid orange;
+        background: pink;
+
+        }
+    body{ text-align: center;
+          font: 50px;
+          border:10px solid brown;
+          margin-top: 50px;
+
+        }
+
+    form{ color: red;
+          margin-top: 50px;
+        }
+
+    form.name.label{ color: green;
+
+    }
+
+
+</style>
+<body>
+
+
+
+<form action="/product/update/{{pid}}" method="post">
+
+    {%csrf_token%}
+    {{form.id.label}}:{{form.id}} <br>
+    {{form.name.label}}:{{form.name}} <br><br>
+    {{form.brand.label}}:{{form.brand}} <br><br>
+    {{form.price.label}}:{{form.price}}<br><br>
+    {{form.quantity.label}}:{{form.quantity}} <br><br>
+    {{form.purchase_date.label}}:{{form.purchase_date}} <br><br><br>
+    <input type="submit" value="Save">
+</form>
+
+<!--<a class="btn btn-warning btn-lg" href="/product/save/" role="button"> Save </a>-->
+</body>
+</html>
